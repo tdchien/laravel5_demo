@@ -14,7 +14,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
     }
 
     /**
@@ -25,5 +25,20 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+
+    public function getValidatePage() {
+        return view('validate');
+    }
+
+    public function postValidatePage(Request $request) {
+        $validator = \Validator::make($request->all(), [
+            'name'    => 'required|min:10',
+            'captcha' => 'required'
+        ]);
+        // var_dump($validator->messages()->all());
+        return redirect()->back()
+                         ->withErrors($validator)
+                         ->withInput();
     }
 }
