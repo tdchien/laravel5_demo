@@ -38,7 +38,7 @@ return [
     'github' => [
         'client_id'     => '1f18e97ab0aa5b0ae7e0',
         'client_secret' => '9161916aae89450a8d801d583192b373a8053b2d',
-        'redirect'      => 'http://localhost:8000/github-test',
+        'redirect'      => 'http://laravel52.dev/auth/github/callback',
     ],
 
 ];
